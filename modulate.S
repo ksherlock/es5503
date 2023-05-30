@@ -60,18 +60,18 @@ ESQ_WSZ		equ $c0
 	sta GLU_DATA
 
 
-* am = freq 8, resolution 7 (each entry repeated 8192 times)
+* am = freq 7, resolution 4 (2.01s)
 * c4 = frq 14715, resolution 6
 	lda #$01 ; #1 freq low
 	sta GLU_ADDR
-	lda #8
+	lda #7
 	sta GLU_DATA
 	lda #14715
 	sta GLU_DATA
 
 	lda #$21 ; #1 freq high
 	sta GLU_ADDR
-	lda #>8
+	lda #>7
 	sta GLU_DATA
 	lda #>14715
 	sta GLU_DATA
@@ -95,7 +95,7 @@ ESQ_WSZ		equ $c0
 
 	lda #$c1 ; wave table size
 	sta GLU_ADDR
-	lda #%00_000_000!7 ; 256 bytes, resolution = 7
+	lda #%00_000_000!4 ; 256 bytes, resolution = 4
 	sta GLU_DATA
 	lda #%00_000_000!6 ; 256 bytes, resolution = 6
 	sta GLU_DATA
